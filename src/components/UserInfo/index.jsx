@@ -42,7 +42,7 @@ const UserInfo = ({ userData }) => {
                     setIndex(index + 1);
                 }
             }}>
-                Next
+                Load
             </Button>
         </UserFrame>
     );

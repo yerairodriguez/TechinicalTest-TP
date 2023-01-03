@@ -35,6 +35,7 @@ export const InfoFrame = styled.div`
 export const Button = styled.button`
     ${withTheme('margin-top', 'sizes.rem1')}
     ${withTheme('font-size', 'sizes.rem1')}
+
     text-align: center;
     align-self: center;
     width: 5rem;

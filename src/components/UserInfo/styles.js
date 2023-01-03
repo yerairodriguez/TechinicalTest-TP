@@ -4,8 +4,8 @@ import { withTheme } from '../../helpers/styles.helper';
 export const UserFrame = styled.div`
     display: flex;
     flex-direction: column;
-    width: 50rem;
-    height: 25rem;
+    width: 20rem;
+    height: 10rem;
     ${withTheme('font-family', 'fonts.body')}
 `
 export const UserImage = styled.img`
@@ -32,3 +32,14 @@ export const InfoFrame = styled.div`
     ${withTheme('margin-top', 'sizes.rem15')}
     ${withTheme('margin-left', 'sizes.rem1')}
 `
+export const Button = styled.button`
+    ${withTheme('margin-top', 'sizes.rem1')}
+    ${withTheme('font-size', 'sizes.rem1')}
+    text-align: center;
+    align-self: center;
+    width: 5rem;
+    height: 1.5rem;
+`
+
+
+

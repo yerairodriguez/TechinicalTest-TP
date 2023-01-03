@@ -1,19 +1,39 @@
-import { UserFrame, InfoFrame, UserInfoContainer, UserName, UserImage, UserEmail, } from './styles'
+import { UserFrame, InfoFrame, UserInfoContainer, UserName, UserImage, UserEmail, Button } from './styles'
+import React from 'react';
+import { useState } from 'react';
 
-export const UserInfo = ({ userData }) => {
+const UserInfo = ({ userData }) => {
+  const [index, setIndex] = useState(0);
+
   return (
     <UserFrame>
-        {userData.map((user, index) => (
+      {userData.map((user, i) => {
+        if (i === index) {
+          return (
             <>
-            <UserInfoContainer>
-                <UserImage key={index} src={user.picture.large} alt={user.name.first} />
+              <UserInfoContainer>
+                <UserImage src={user.picture.large} alt={user.name.first} />
                 <InfoFrame>
-                    <UserName key={index}>{user.name.first} {user.name.last}</UserName>
-                    <UserEmail key={index}>{user.email}</UserEmail>
+                  <UserName>{user.name.first} {user.name.last}</UserName>
+                  <UserEmail>{user.email}</UserEmail>
                 </InfoFrame>
-            </UserInfoContainer>
+              </UserInfoContainer>
             </>
-        ))}
-    </UserFrame> 
-)}
-export default UserInfo
+          );
+        }
+        return null;
+      })}
+      <Button onClick={() => {
+        if (index === userData.length - 1) {
+          setIndex(0);
+        } else {
+          setIndex(index + 1);
+        }
+      }}>
+        Next
+      </Button>
+    </UserFrame>
+  );
+};
+
+export default UserInfo;

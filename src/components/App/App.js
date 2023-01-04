@@ -1,13 +1,12 @@
 import React from 'react';
-import UserInfo from '../UserInfo';
-import { getUserData } from '../UserInfo/data/dataSample';
+import UserInfo from '../UserInfoAPI'
 
 
 function App() {
   return (
     <>
     <div>
-      <UserInfo userData={getUserData()}/>
+      <UserInfo/>
     </div>
     </>
   )

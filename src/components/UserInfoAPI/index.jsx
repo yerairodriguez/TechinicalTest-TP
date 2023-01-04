@@ -1,15 +1,31 @@
 import { UserFrame, InfoFrame, UserInfoContainer, UserName, UserImage, UserEmail, Button } from './styles'
 import React from 'react';
 import { useState } from 'react';
+import { GetAPI } from '../UserInfoAPI/getApi';
 
-const UserInfo = ({ userData }) => {
+const baseURL = 'https://randomuser.me/api?results=10';
+
+const UserInfo = () => {
+    const getUserAPI = GetAPI(baseURL);
+    console.log(getUserAPI);
     const [index, setIndex] = useState(0);
     const [userStorage, setUserStorage] = useState([]);
-    const currentUser = userData[index];
 
     return (
+        
         <UserFrame>
             <h1>Click to load values</h1>
+            <Button onClick={() => {
+                    if (index < getUserAPI.results.length) {
+                        setIndex(index + 1);
+                        setUserStorage([...userStorage, getUserAPI.results[index]]);
+                    } else {
+                        setUserStorage([]);
+                        setIndex(0);
+                    }
+                }}>
+                    Load
+                </Button>
                 {userStorage.map((user, index) => (
                     <UserInfoContainer key={index}>
                         <UserImage src={user.picture.large} alt={user.name.first} />
@@ -19,17 +35,7 @@ const UserInfo = ({ userData }) => {
                         </InfoFrame>
                     </UserInfoContainer>
                 ))}
-                <Button onClick={() => {
-                    if (index < userData.length) {
-                        setIndex(index + 1);
-                        setUserStorage([...userStorage, currentUser]);
-                    } else {
-                        setUserStorage([]);
-                        setIndex(0);
-                    }
-                }}>
-                    Load
-                </Button>
+                
         </UserFrame>
     );
 };

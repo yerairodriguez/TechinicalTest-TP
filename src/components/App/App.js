@@ -1,15 +1,13 @@
-import React from 'react';
-import UserInfo from '../UserInfo';
-import { getUserData } from '../UserInfo/data/dataSample';
+import React from 'react'
+import UserInfo from '../UserInfo'
+import { getUserData } from '../UserInfo/data/dataSample'
 
 
 function App() {
   return (
-    <>
     <div>
       <UserInfo userData={getUserData()}/>
     </div>
-    </>
   )
 }
 

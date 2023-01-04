@@ -4,7 +4,6 @@ export const UserInfo = ({ userData }) => {
   return (
     <UserFrame>
         {userData.map((user, index) => (
-            <>
             <UserInfoContainer>
                 <UserImage key={index} src={user.picture.large} alt={user.name.first} />
                 <InfoFrame>
@@ -12,7 +11,6 @@ export const UserInfo = ({ userData }) => {
                     <UserEmail key={index}>{user.email}</UserEmail>
                 </InfoFrame>
             </UserInfoContainer>
-            </>
         ))}
     </UserFrame> 
 )}

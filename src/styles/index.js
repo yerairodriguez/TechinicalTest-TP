@@ -17,6 +17,7 @@ export const theme = {
         rem12: '1.2rem',
         rem15: '1.5rem',
         rem2: '2rem',
+        rem5: '5rem',
         rem6: '6rem'
       },
       fontWeight: {

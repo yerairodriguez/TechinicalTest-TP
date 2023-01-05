@@ -1,4 +1,4 @@
-import { UserFrame, InfoFrame, UserInfoContainer, UserName, UserImage, UserEmail, Button } from './styles'
+import { Container, Header, UserFrame, InfoFrame, UserInfoContainer, UserName, UserImage, UserEmail, Button } from './styles'
 import React from 'react';
 import { useState } from 'react';
 
@@ -8,17 +8,9 @@ const UserInfo = ({ userData }) => {
     const currentUser = userData[index];
 
     return (
-        <UserFrame>
-            <h1>Click to load values</h1>
-                {userStorage.map((user, index) => (
-                    <UserInfoContainer key={index}>
-                        <UserImage src={user.picture.large} alt={user.name.first} />
-                        <InfoFrame>
-                            <UserName>{user.name.first} {user.name.last}</UserName>
-                            <UserEmail>{user.email}</UserEmail>
-                        </InfoFrame>
-                    </UserInfoContainer>
-                ))}
+        <Container>
+            <Header>
+                <h1>Click to load values</h1>
                 <Button onClick={() => {
                     if (index < userData.length) {
                         setIndex(index + 1);
@@ -30,7 +22,19 @@ const UserInfo = ({ userData }) => {
                 }}>
                     Load
                 </Button>
-        </UserFrame>
+            </Header>
+            <UserFrame>
+                {userStorage.map((user, index) => (
+                    <UserInfoContainer key={index}>
+                        <UserImage src={user.picture.large} alt={user.name.first} />
+                        <InfoFrame>
+                            <UserName>{user.name.first} {user.name.last}</UserName>
+                            <UserEmail>{user.email}</UserEmail>
+                        </InfoFrame>
+                    </UserInfoContainer>
+                ))}
+            </UserFrame>
+        </Container>
     );
 };
 
